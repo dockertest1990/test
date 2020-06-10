@@ -16,7 +16,7 @@
                         "spec": {
                             "containers": [
                                 {
-                                    "image": "gcr.io/ld-ds-pco-personalization/hello-app:seldon20",
+                                    "image": "gcr.io/ld-ds-pco-personalization/hello-app:seldon22",
                                     "imagePullPolicy": "IfNotPresent",
                                     "name": "classifier",
                                     "resources": {

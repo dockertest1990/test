@@ -10,9 +10,6 @@ class MyModel(object):
         """
         print("Initializing")
         
-    def predict_raw(self,request):
-        ret = {"test":"here", "names":[1,2,3]}
-        return ret
     
     def predict(self, X, feature_names=None):
         return X

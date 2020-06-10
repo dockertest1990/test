@@ -1,0 +1,57 @@
+{
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "kind": "SeldonDeployment",
+    "metadata": {
+        "labels": {
+            "app": "seldon"
+        },
+        "name": "seldon8"
+    },
+    "spec": {
+        "name": "test",
+        "predictors": [
+            {
+                "componentSpecs": [
+                    {
+                        "spec": {
+                            "containers": [
+                                {
+                                    "image": "gcr.io/ld-ds-pco-personalization/hello-app:seldon20",
+                                    "imagePullPolicy": "IfNotPresent",
+                                    "name": "classifier",
+                                    "resources": {
+                                        "requests": {
+                                            "memory": "1Mi"
+                                        }
+                                    }
+                                }
+                            ],
+                            "terminationGracePeriodSeconds": 1
+                        }
+                    }
+                ],
+                "graph": {
+                    "children": [],
+                    "endpoint": {
+                        "type": "REST"
+                    },
+                    "name": "classifier",
+                    "type": "MODEL"
+                },
+                "labels": {
+                    "version": "v1"
+                },
+                "name": "example",
+                "replicas": 1,
+                "svcOrchSpec": {
+                    "env": [
+                        {
+                            "name": "SELDON_LOG_LEVEL",
+                            "value": "DEBUG"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
